@@ -1,10 +1,14 @@
 import java.util.Scanner;
 
-import conteoller.MemberManager;
-import view.ADMINMENU_CHOICE;
-import view.AdminMenuViewer;
+import conteoller.member.MemberManager;
+import conteoller.player.PlayerManager;
+import conteoller.team.TeamManager;
 import view.MENU_CHOICE;
 import view.MenuViewer;
+import view.admin.ADMINMENU_CHOICE;
+import view.admin.AdminMenuViewer;
+import view.login.LOGIN_CHOICE;
+import view.login.LoginMenuViewer;
 
 public class FootBallTransferMain {
   public static Scanner input = new Scanner(System.in);
@@ -14,8 +18,8 @@ public class FootBallTransferMain {
   }
 
   private static void mainMenu() {
+    MemberManager mm = new MemberManager();
     int choiceNum;
-
     while (true) {
       MenuViewer.mainMenuViewer();
       choiceNum = MenuViewer.choice.nextInt();
@@ -23,7 +27,7 @@ public class FootBallTransferMain {
 
       switch (choiceNum) {
         case MENU_CHOICE.JOIN:
-          joinMenu();
+          mm.joinMember();
           break;
         case MENU_CHOICE.LOGIN:
           loginMenu();
@@ -41,36 +45,30 @@ public class FootBallTransferMain {
     }
   }
 
-  // 관리자 로그인 메뉴
-  private static void adminLoginMenu() {
-    // 관리자 검증
+  public static void loginMenu() {
+    int mNo = 0;
+    int choiceNum = 0;
     MemberManager mm = new MemberManager();
-    mm.verifyAdmin();
-
-    int choiceNum;
+    mNo = mm.login();
 
     while (true) {
-      AdminMenuViewer.adminMenu();
-      choiceNum = AdminMenuViewer.choice.nextInt();
-      AdminMenuViewer.choice.nextLine();
+      LoginMenuViewer.loginMenu();
+      choiceNum = LoginMenuViewer.sc.nextInt();
+      LoginMenuViewer.sc.nextLine();
 
       switch (choiceNum) {
-        case ADMINMENU_CHOICE.PLAYERCREATE:
-          mm.createPlayer();
+        case LOGIN_CHOICE.MY_TEAM_INFO:
+          mm.myTeamInfo(mNo);
           break;
-        case ADMINMENU_CHOICE.TEAMCREATE:
-
+        case LOGIN_CHOICE.BUY_PLAYER:
+          mm.buyPlayer(mNo);
           break;
-        case ADMINMENU_CHOICE.PLAYERDELETE:
-
+        case LOGIN_CHOICE.SELL_PLAYER:
+          mm.sellPlayer(mNo);
           break;
-        case ADMINMENU_CHOICE.TEAMDELETE:
-
-          break;
-        case ADMINMENU_CHOICE.EXIT:
-          System.out.println("관리자 메뉴 종료");
+        case LOGIN_CHOICE.EXIT:
+          System.out.println("로그인 메뉴 종료");
           return;
-
         default:
           System.out.println("올바른 값을 입력해주세요.");
           break;
@@ -79,14 +77,45 @@ public class FootBallTransferMain {
 
   }
 
-  // 로그인 메뉴
-  private static void loginMenu() {
-
-  }
-
-  // 회원가입
-  public static void joinMenu() {
+  // 관리자 로그인 메뉴
+  public static void adminLoginMenu() {
+    // 관리자 검증
     MemberManager mm = new MemberManager();
-    mm.joinMember();
+    mm.verifyAdmin();
+    TeamManager tm = new TeamManager();
+    PlayerManager pm = new PlayerManager();
+    int choiceNum;
+    while (true) {
+      AdminMenuViewer.adminMenu();
+      choiceNum = AdminMenuViewer.sc.nextInt();
+      AdminMenuViewer.sc.nextLine();
+
+      switch (choiceNum) {
+        case ADMINMENU_CHOICE.TEAMCREATE:
+          tm.adminCreateTeam();
+          break;
+        case ADMINMENU_CHOICE.PLAYERCREATE:
+          pm.adminCreatePlayer();
+          break;
+        case ADMINMENU_CHOICE.TEAMDELETE:
+          tm.adminDeleteTeam();
+          break;
+        case ADMINMENU_CHOICE.PLAYERDELETE:
+          pm.adminDeletePlayer();
+          break;
+        case ADMINMENU_CHOICE.PLAYERLIST:
+          pm.getPlayerList();
+          break;
+        case ADMINMENU_CHOICE.TEAMLIST:
+          tm.getteamList();
+          break;
+        case ADMINMENU_CHOICE.EXIT:
+          System.out.println("관리자 메뉴 종료");
+          return;
+        default:
+          System.out.println("올바른 값을 입력해주세요.");
+          break;
+      }
+    }
   }
 }

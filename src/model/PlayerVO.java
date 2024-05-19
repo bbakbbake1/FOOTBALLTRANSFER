@@ -1,88 +1,104 @@
 package model;
 
 public class PlayerVO {
-  private int p_no;
-  private String name;
-  private int back_Num;
-  private int shot;
-  private int pass;
-  private int defense;
-  private String position;
+  private int pNo;
+  private int tNo;
+  private String pName;
+  private int pBackNum;
+  private String pPosition;
+  private int pShot;
+  private int pPass;
+  private int pDefense;
+  private int pPrice;
 
-  public PlayerVO() {
-    super();
+  public PlayerVO(int pNo, String pName, int pBackNum, String pPosition, int pShot, int pPass, int pDefense,
+      int pPrice) {
+    this.pNo = pNo;
+    this.pName = pName;
+    this.pBackNum = pBackNum;
+    this.pPosition = pPosition;
+    this.pShot = pShot;
+    this.pPass = pPass;
+    this.pDefense = pDefense;
+    this.pPrice = pPrice;
   }
 
-  public PlayerVO(int p_no, String name, int back_Num, int shot, int pass, int defense, String position) {
-    this.p_no = p_no;
-    this.name = name;
-    this.back_Num = back_Num;
-    this.shot = shot;
-    this.pass = pass;
-    this.defense = defense;
-    this.position = position;
+  public int getpNo() {
+    return pNo;
   }
 
-  public int getP_no() {
-    return p_no;
+  public void setpNo(int pNo) {
+    this.pNo = pNo;
   }
 
-  public void setP_no(int p_no) {
-    this.p_no = p_no;
+  public int gettNo() {
+    return tNo;
   }
 
-  public String getName() {
-    return name;
+  public void settNo(int tNo) {
+    this.tNo = tNo;
   }
 
-  public void setName(String name) {
-    this.name = name;
+  public String getpName() {
+    return pName;
   }
 
-  public int getBack_Num() {
-    return back_Num;
+  public void setpName(String pName) {
+    this.pName = pName;
   }
 
-  public void setBack_Num(int back_Num) {
-    this.back_Num = back_Num;
+  public int getpBackNum() {
+    return pBackNum;
   }
 
-  public int getShot() {
-    return shot;
+  public void setpBackNum(int pBackNum) {
+    this.pBackNum = pBackNum;
   }
 
-  public void setShot(int shot) {
-    this.shot = shot;
+  public int getpShot() {
+    return pShot;
   }
 
-  public int getPass() {
-    return pass;
+  public void setpShot(int pShot) {
+    this.pShot = pShot;
   }
 
-  public void setPass(int pass) {
-    this.pass = pass;
+  public int getpPass() {
+    return pPass;
   }
 
-  public int getDefense() {
-    return defense;
+  public void setpPass(int pPass) {
+    this.pPass = pPass;
   }
 
-  public void setDefense(int defense) {
-    this.defense = defense;
+  public int getpDefense() {
+    return pDefense;
   }
 
-  public String getPosition() {
-    return position;
+  public void setpDefense(int pDefense) {
+    this.pDefense = pDefense;
   }
 
-  public void setPosition(String position) {
-    this.position = position;
+  public String getpPosition() {
+    return pPosition;
+  }
+
+  public void setpPosition(String pPosition) {
+    this.pPosition = pPosition;
+  }
+
+  public int getpPrice() {
+    return pPrice;
+  }
+
+  public void setpPrice(int pPrice) {
+    this.pPrice = pPrice;
   }
 
   @Override
   public String toString() {
-    return "p_no=" + p_no + ", name=" + name + ", back_Num=" + back_Num + ", shot=" + shot + ", pass=" + pass
-        + ", defense=" + defense + ", position=" + position + "\n";
+    return "pNo=" + pNo + ", pName=" + pName + ", pBackNum=" + pBackNum + ", pShot=" + pShot + ", pPass="
+        + pPass + ", pDefense=" + pDefense + ", pPosition=" + pPosition + ", pPrice=" + pPrice + "\n";
   }
 
 }

@@ -22,7 +22,6 @@ public class DBUtill {
       Class.forName("oracle.jdbc.driver.OracleDriver");
       // DATABASE CONNECT
       con = DriverManager.getConnection(url, user, password);
-      System.out.println("데이터베이스 접속 성공");
     } catch (FileNotFoundException e) {
       e.printStackTrace();
       System.out.println("DB.PROPERTIES 연결 실패");

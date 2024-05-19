@@ -1,67 +1,76 @@
 package model;
 
 public class MembersVO {
-private int no;
-private String emailId;
-private String pw;
-private String teamname;
-private String balance;
-private int isAdmin;
+  private int mNo;
+  private int tNo;
+  private String mId;
+  private String mPw;
+  private String mBalance;
+  private int mIsAdmin;
 
+  public MembersVO() {
+  }
 
-public MembersVO(int no, String emailId, String pw, String teamname, String balance, int isAdmin) {
-  this.no = no;
-  this.emailId = emailId;
-  this.pw = pw;
-  this.teamname = teamname;
-  this.balance = balance;
-  this.isAdmin = isAdmin;
-}
-public MembersVO() {
-super();
-}
-public int getNo() {
-  return no;
-}
-public void setNo(int no) {
-  this.no = no;
-}
-public String getEmailId() {
-  return emailId;
-}
-public void setEmailId(String emailId) {
-  this.emailId = emailId;
-}
-public String getPw() {
-  return pw;
-}
-public void setPw(String pw) {
-  this.pw = pw;
-}
-public String getTeamname() {
-  return teamname;
-}
-public void setTeamname(String teamname) {
-  this.teamname = teamname;
-}
-public String getBalance() {
-  return balance;
-}
-public void setBalance(String balance) {
-  this.balance = balance;
-}
-public int getIsAdmin() {
-  return isAdmin;
-}
-public void setIsAdmin(int isAdmin) {
-  this.isAdmin = isAdmin;
-}
-@Override
-public String toString() {
-  return "no=" + no + ", emailId=" + emailId + ", pw=" + pw + ", teamname=" + teamname + ", balance="
-      + balance + ", isAdmin=" + isAdmin + "\n";
-}
+  public MembersVO(int mNo, int tNo, String mId, String mPw, String mBalance, int mIsAdmin) {
+    this.mNo = mNo;
+    this.tNo = tNo;
+    this.mId = mId;
+    this.mPw = mPw;
+    this.mBalance = mBalance;
+    this.mIsAdmin = mIsAdmin;
+  }
 
+  public int getmNo() {
+    return mNo;
+  }
 
+  public void setmNo(int mNo) {
+    this.mNo = mNo;
+  }
 
+  public int gettNo() {
+    return tNo;
+  }
+
+  public void settNo(int tNo) {
+    this.tNo = tNo;
+  }
+
+  public String getmId() {
+    return mId;
+  }
+
+  public void setmId(String mId) {
+    this.mId = mId;
+  }
+
+  public String getmPw() {
+    return mPw;
+  }
+
+  public void setmPw(String mPw) {
+    this.mPw = mPw;
+  }
+
+  public String getmBalance() {
+    return mBalance;
+  }
+
+  public void setmBalance(String mBalance) {
+    this.mBalance = mBalance;
+  }
+
+  public int getmIsAdmin() {
+    return mIsAdmin;
+  }
+
+  public void setmIsAdmin(int mIsAdmin) {
+    this.mIsAdmin = mIsAdmin;
+  }
+
+  @Override
+  public String toString() {
+    return "mNo=" + mNo + ", tNo=" + tNo + ", mId=" + mId + ", mPw=" + mPw + ", mBalance=" + mBalance
+        + ", mIsAdmin=" + mIsAdmin;
+  }
 }

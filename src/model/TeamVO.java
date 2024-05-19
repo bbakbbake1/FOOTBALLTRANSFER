@@ -1,33 +1,69 @@
 package model;
 
-public class TeamVO {
-  private int t_no;
-  private String c_teamName;
+import java.util.ArrayList;
 
-  
+public class TeamVO {
+  private int tNo;
+  private String tName;
+  private ArrayList<PlayerVO> playerList;
+  private int balance;
+
   public TeamVO() {
-    super();
   }
-  public TeamVO(int t_no, String c_teamName) {
-    this.t_no = t_no;
-    this.c_teamName = c_teamName;
+
+  public TeamVO(String tName, int balance) {
+    this.tName = tName;
+    this.balance = balance;
+    this.playerList = new ArrayList<>();
   }
-  public int getT_no() {
-    return t_no;
+
+  public TeamVO(int tNo, String tName) {
+    this.tNo = tNo;
+    this.tName = tName;
   }
-  public void setT_no(int t_no) {
-    this.t_no = t_no;
+
+  public int gettNo() {
+    return tNo;
   }
-  public String getC_teamName() {
-    return c_teamName;
+
+  public void settNo(int tNo) {
+    this.tNo = tNo;
   }
-  public void setC_teamName(String c_teamName) {
-    this.c_teamName = c_teamName;
+
+  public String gettName() {
+    return tName;
   }
+
+  public void settName(String tName) {
+    this.tName = tName;
+  }
+
+  public ArrayList<PlayerVO> getPlayerList() {
+    return playerList;
+  }
+
+  public void setPlayerList(ArrayList<PlayerVO> playerList) {
+    this.playerList = playerList;
+  }
+
+  public void addPlayer(PlayerVO pvo) {
+    this.playerList.add(pvo);
+  }
+
+  public int getBalance() {
+    return balance;
+  }
+
+  public void setBalance(int balance) {
+    this.balance = balance;
+  }
+  
+  public String myTeamInfo() {
+    return "팀 번호 : " + tNo + " 팀 이름 : " + tName + " 자산 : " + balance + "\n" + playerList;
+  }
+
   @Override
   public String toString() {
-    return "t_no=" + t_no + ", c_teamName=" + c_teamName + "\n";
+    return "팀 번호 : " + tNo + " 팀 이름 : " + tName + "\n";
   }
-
-  
 }
